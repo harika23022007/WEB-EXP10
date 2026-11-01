@@ -1,0 +1,139 @@
+
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+    res.writeHead(200, {
+        'Content-Type': 'text/html'
+    });
+
+    res.end(`
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Creative Canvas</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f5ff;
+        }
+
+        header {
+            background: #2474c6;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        nav {
+            background: #173f7a;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 20px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 35px;
+        }
+
+        .products {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px #ccc;
+        }
+
+        .card h3 {
+            color: #2474c6;
+        }
+
+        footer {
+            background: #173f7a;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Creative Canvas</h1>
+    <p>Your Online Art Supplies Store</p>
+</header>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/products">Products</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+</nav>
+
+<div class="container">
+
+    <h2>Welcome to Creative Canvas!</h2>
+    <p>Explore art materials and bring your creativity to life.</p>
+
+    <h2>Our Products</h2>
+
+    <div class="products">
+
+        <div class="card">
+            <h3>Paint Brushes</h3>
+            <p>Quality brushes for painting.</p>
+            <b>Price: ₹150</b>
+        </div>
+
+        <div class="card">
+            <h3>Water Colours</h3>
+            <p>Beautiful colours for artwork.</p>
+            <b>Price: ₹200</b>
+        </div>
+
+        <div class="card">
+            <h3>Sketch Books</h3>
+            <p>Perfect for drawing and sketching.</p>
+            <b>Price: ₹120</b>
+        </div>
+
+        <div class="card">
+            <h3>Canvas Sheets</h3>
+            <p>Suitable for creative paintings.</p>
+            <b>Price: ₹250</b>
+        </div>
+
+    </div>
+
+    <h2>Server Request Details</h2>
+    <p>Request URL: ${req.url}</p>
+    <p>Request Method: ${req.method}</p>
+
+</div>
+
+<footer>
+    <p>© 2026 Creative Canvas - Online Art Supplies Store</p>
+</footer>
+
+</body>
+</html>
+    `);
+});
+
+server.listen(3000, () => {
+    console.log('Creative Canvas server running at http://localhost:3000');
+});
